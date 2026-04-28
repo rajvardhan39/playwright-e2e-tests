@@ -2,7 +2,11 @@
   "name": "playwright-e2e-tests",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "demo":"npx playwright test test/demo/mytest.spec.ts --headed",
+     "login":"npx playwright test test/functional/login1.spec.ts --headed",
+    "report":"npx playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
