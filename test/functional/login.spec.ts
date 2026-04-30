@@ -22,23 +22,21 @@ test("Should prevent login ",async({page})=>{
 
      await page.getByPlaceholder("name@example.com").fill("newuser@gmail.com");
      await page.getByPlaceholder("Enter your password").fill("1234567");
-     await page.getByRole("button").click();
-     //iouiouiouiouiouiouiouiouiouiouiouiouiouiouiou
-    // await expect(page.locator("//h1")).toHaveText("Premium Collection");
-    
-   
-    
-    await page.getByText('Don\'t have an account?').click();
-     
+ //await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
 
 })
+
+
+
+
 
 /* 
 
   page.locator returns the locator and its return type is object( so page.locator doesn't return the promise)
 
 */
-
 
 test("by using codegen",async({page})=>{
      await page.goto("http://localhost:3000/login");

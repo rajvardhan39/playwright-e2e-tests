@@ -12,7 +12,7 @@ test("Edit Product", async ({ page }) => {
      await page.getByRole('link', { name: 'Users' }).click();
      await page.getByRole('link', { name: 'Products' }).click();
      await page.getByRole('link', { name: 'Categories' }).click();
-     await page.getByRole('link', { name: 'Orders' }).click();
+     await page.getByRole('link', { name: 'Orders999' }).click();
      await page.locator('tr:nth-child(8) > td:nth-child(7) > .status-wrapper > .status-select').selectOption('SHIPPED');
      await page.getByRole('link', { name: 'Dashboard' }).click();
      await page.getByRole('link', { name: 'Users' }).click();

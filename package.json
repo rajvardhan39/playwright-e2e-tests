@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "inven":"npx playwright test test/functional/inventory.spec.ts --headed",
-    "demo":"npx playwright test test/demo/mytest.spec.ts --headed",
-     "login":"npx playwright test test/functional/login1.spec.ts --headed",
-    "report":"npx playwright show-report"
+    "inven": "npx playwright test test/functional/inventory.spec.ts --headed",
+    "inven:ui": "npx playwright test test/functional/inventory.spec.ts --ui --headed",
+    "demo": "npx playwright test test/demo/mytest.spec.ts --headed",
+    "edit": "npx playwright test test/functional/edit_product.spec.ts --headed",
+    "login": "npx playwright test test/functional/login1.spec.ts --headed",
+    "report": "npx playwright show-report",
+    "pw-sc":"npx playwright test test/functional/pw-screenshot.spec.ts --headed"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "allure-playwright": "^3.7.1"
   }
 }

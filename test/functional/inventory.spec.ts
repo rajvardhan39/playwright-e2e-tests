@@ -14,6 +14,8 @@ test.describe("Check all prices are positive", () => {
   });
 
 
+  
+
   test("confirm prices are non zero values", async ({ page }) => {
   
     const cards = await page.$$('.image-wrapper');
