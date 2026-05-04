@@ -4,13 +4,14 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+console.log("hello , global file is loading");
 export default defineConfig({
   testDir: './test',
   /* Run tests in files in parallel */
@@ -22,6 +23,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: (globalThis as any).process?.env?.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  expect:{timeout:10_000},
+  globalSetup:require.resolve('./test/helpers/global.setup.ts'),
+
   reporter: [['html'],
   [
     "allure-playwright",
@@ -54,6 +58,14 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    
+
+   
+    // {
+       
+    //   name:"Galaxy A55",
+    //   use:{...devices["Galaxy A55"]}
+    // },
 
     // {
     //   name: 'firefox',

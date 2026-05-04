@@ -9,17 +9,19 @@ test.describe("Login Feature", () => {
   });
 
   test("Should login successfully", async ({ page }) => {
+
     await page.getByPlaceholder("name@example.com").fill("newuser@gmail.com");
     await page.getByPlaceholder("Enter your password").fill("123456");
-    await page.getByRole("button").click();
+    await page.getByRole("button", { name: "Sign In" }).click();
 
     await expect(page.locator("//h1")).toHaveText("Premium Collection");
   });
 
   test("Should prevent login ", async ({ page }) => {
+
     await page.getByPlaceholder("name@example.com").fill("newuser@gmail.com");
     await page.getByPlaceholder("Enter your password").fill("1234567");
-    await page.getByRole("button").click();
+    await page.getByRole("button", { name: "Sign In" }).click();
 
     // await expect(page.locator("//h1")).toHaveText("Premium Collection");
 
